@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProductsListResponse",
+  "description": "Contrato de respuesta para GET /products",
+  "type": "object",
+  "required": ["products", "total", "skip", "limit"],
+  "additionalProperties": false,
+  "properties": {
+    "products": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "price"],
+        "properties": {
+          "id":    { "type": "integer" },
+          "title": { "type": "string" },
+          "price": { "type": "number" }
+        }
+      }
+    },
+    "total": { "type": "integer", "minimum": 0 },
+    "skip":  { "type": "integer", "minimum": 0 },
+    "limit": { "type": "integer", "minimum": 1 }
+  }
+}

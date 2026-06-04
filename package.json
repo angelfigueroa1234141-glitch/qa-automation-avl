@@ -1,0 +1,30 @@
+{
+  "name": "qa-automation-avl",
+  "version": "1.0.0",
+  "description": "Suite de automatización QA — Capa Móvil (Maestro) + API (Playwright) + Eventos (Kafka)",
+  "scripts": {
+    "test:api": "playwright test --config=playwright.config.ts",
+    "test:api:headed": "playwright test --config=playwright.config.ts --reporter=list",
+    "test:api:report": "playwright show-report reports/api",
+    "test:kafka": "playwright test --config=playwright.kafka.config.ts",
+    "test:all": "npm run test:api && npm run test:kafka",
+    "mobile:login": "maestro test mobile-tests/flows/01-login-success.yaml",
+    "mobile:login-fail": "maestro test mobile-tests/flows/02-login-invalid.yaml",
+    "mobile:navigation": "maestro test mobile-tests/flows/03-navigation.yaml",
+    "mobile:cart": "maestro test mobile-tests/flows/04-add-to-cart.yaml",
+    "mobile:all": "maestro test mobile-tests/flows/",
+    "kafka:up": "docker compose up -d && sleep 10",
+    "kafka:down": "docker compose down",
+    "kafka:topics": "docker exec qa-kafka kafka-topics.sh --bootstrap-server localhost:9092 --list"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.14.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "ajv": "^8.16.0",
+    "ajv-formats": "^3.0.1",
+    "kafkajs": "^2.2.4"
+  }
+}

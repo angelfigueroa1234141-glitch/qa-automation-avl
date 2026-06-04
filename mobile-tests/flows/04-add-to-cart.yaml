@@ -1,0 +1,56 @@
+# TC-MOB-04 | Agregar producto al carrito y verificar badge
+appId: com.saucelabs.mydemoapp.android
+---
+- launchApp:
+    clearState: true
+
+- tapOn:
+    id: "nameET"
+- inputText: "bob@example.com"
+
+- tapOn:
+    id: "passwordET"
+- inputText: "10203040"
+
+- tapOn:
+    id: "loginBtn"
+
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Products"
+
+- tapOn:
+    id: "productIV"
+    index: 0
+
+- waitForAnimationToEnd
+
+- assertVisible:
+    id: "addToCartBT"
+
+- takeScreenshot: "reports/mobile/tc-mob-04-before-cart"
+
+- tapOn:
+    id: "addToCartBT"
+
+- waitForAnimationToEnd
+
+- assertVisible:
+    id: "cartTV"
+
+- takeScreenshot: "reports/mobile/tc-mob-04-after-cart"
+
+- tapOn:
+    id: "cartIV"
+
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Your Cart"
+
+- assertVisible:
+    id: "cartItem"
+    index: 0
+
+- takeScreenshot: "reports/mobile/tc-mob-04-cart-screen"

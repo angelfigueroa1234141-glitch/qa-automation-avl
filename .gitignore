@@ -1,0 +1,21 @@
+node_modules/
+dist/
+reports/
+*.log
+
+# Playwright
+test-results/
+playwright-report/
+
+# Env secrets
+.env
+.env.local
+
+# APK / IPA (pesados, no van en el repo)
+*.apk
+*.ipa
+*.app
+
+# OS
+.DS_Store
+Thumbs.db

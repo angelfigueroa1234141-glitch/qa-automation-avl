@@ -1,0 +1,59 @@
+# TC-MOB-03 | Navegación — Catálogo → Detalle → Menú
+appId: com.saucelabs.mydemoapp.android
+---
+- launchApp:
+    clearState: true
+
+- tapOn:
+    id: "nameET"
+- inputText: "bob@example.com"
+
+- tapOn:
+    id: "passwordET"
+- inputText: "10203040"
+
+- tapOn:
+    id: "loginBtn"
+
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Products"
+
+- takeScreenshot: "reports/mobile/tc-mob-03-catalog"
+
+- tapOn:
+    id: "productIV"
+    index: 0
+
+- waitForAnimationToEnd
+
+- assertVisible:
+    id: "productTV"
+
+- assertVisible:
+    id: "productPriceTV"
+
+- assertVisible:
+    id: "addToCartBT"
+
+- takeScreenshot: "reports/mobile/tc-mob-03-product-detail"
+
+- pressKey: Back
+
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Products"
+
+- tapOn:
+    id: "menuIV"
+
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Log Out"
+
+- takeScreenshot: "reports/mobile/tc-mob-03-menu"
+
+- pressKey: Back

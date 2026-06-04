@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AuthResponse",
+  "description": "Contrato de respuesta para POST /auth/login — compatible con DummyJSON v1 (token) y v2 (accessToken)",
+  "type": "object",
+  "required": ["id", "email"],
+  "additionalProperties": true,
+  "properties": {
+    "id":           { "type": "integer", "minimum": 1 },
+    "username":     { "type": "string",  "minLength": 1 },
+    "email":        { "type": "string",  "format": "email" },
+    "firstName":    { "type": "string",  "minLength": 1 },
+    "lastName":     { "type": "string",  "minLength": 1 },
+    "gender":       { "type": "string",  "enum": ["male", "female", "other"] },
+    "image":        { "type": "string",  "format": "uri" },
+    "accessToken":  { "type": "string",  "minLength": 10 },
+    "token":        { "type": "string",  "minLength": 10 },
+    "refreshToken": { "type": "string",  "minLength": 10 }
+  }
+}

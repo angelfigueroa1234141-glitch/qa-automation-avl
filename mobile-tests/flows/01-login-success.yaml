@@ -1,0 +1,28 @@
+# TC-MOB-01 | Login exitoso — bob@example.com / 10203040
+appId: com.saucelabs.mydemoapp.android
+---
+- launchApp:
+    clearState: true
+
+- assertVisible:
+    text: "Login"
+
+- tapOn:
+    id: "nameET"
+- clearText
+- inputText: "bob@example.com"
+
+- tapOn:
+    id: "passwordET"
+- clearText
+- inputText: "10203040"
+
+- tapOn:
+    id: "loginBtn"
+
+- waitForAnimationToEnd
+
+- assertVisible:
+    text: "Products"
+
+- takeScreenshot: "reports/mobile/tc-mob-01-login-success"
